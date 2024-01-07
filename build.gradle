@@ -28,50 +28,47 @@ dependencies {
 
 }
 
+
 test {
     useJUnitPlatform()
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
 }
 
 configurations {
     cucumberRuntime {
         extendsFrom testImplementation
     }
+
 }
 
-def tags = (findProperty('tags') == null) ? 'not @exclude' : findProperty('tags') + ' and not @exclude'
-
-task cucumber() {
-    description("Running Cucumber Test")
-    dependsOn assemble, compileTestJava
+tasks.register('apiTest') {
+    dependsOn assemble, testClasses
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
-//                    '--plugin', 'html:reports/index.html',
-'--plugin', 'pretty',
-'--glue', 'raihan',
-'--tags', "${tags}",
-'src/test/resources/selenium'
-            ]
+                    '--plugin', 'pretty',
+                    '--plugin', 'html:reports/cucumber-api-report.html',
+                    '--glue', 'stepdef',
+                    '--tags', "@api",
+                    'src/test/java/Features']
         }
     }
 }
 
-task api() {
-    description("Running Api Test")
-    dependsOn assemble, compileTestJava
+tasks.register('webTest') {
+    dependsOn assemble, testClasses
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
-//                    '--plugin', 'html:reports/api.html',
-'--plugin', 'pretty',
-'--glue', 'api',
-'--tags', "@Api-testing",
-'src/test/resources/api'
-            ]
+                    '--plugin', 'pretty',
+                    '--plugin', 'html:reports/cucumber-web-report.html',
+                    '--glue', 'stepdef',
+                    '--tags', "@web",
+                    'src/test/java/Features']
         }
     }
 }
