@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "likes": {
+      "type": "integer"
+    },
+    "link": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array"
+    },
+    "text": {
+      "type": "string"
+    },
+    "publishDate": {
+      "type": "string"
+    },
+    "updatedDate": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "picture": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "title", "firstName", "lastName", "picture"]
+    }
+  }
+}
