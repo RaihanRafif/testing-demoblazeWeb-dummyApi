@@ -1,10 +1,10 @@
-name: Selenium testing automation workflow
+name: API Automation Workflow
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
@@ -13,40 +13,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # download repo
+    #download repo
     - uses: actions/checkout@v3
 
-    # Setup Java
+    #setup java
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'temurin'
-        
-    # Install Chrome browser
-    - name: Setup Chrome
-      uses: browser-actions/setup-chrome@v1.4.0
 
-    # Setup Gradlew
-    - name: Setup Gradlew
-      run: chmod +x gradlew
+    #Setup gradlew
+    - name: Setup gradlew
+      run: chmod +x gradlew 
 
-    # Execute graddle command for running cucumber test
+    #Execute gradle command for running cucumber test
     - name: Execute Test
-      run: ./gradlew cucumber
+      run: ./gradlew apiTest
 
-    # Archive Test Result
+    #Archive Test Result
     - name: Archive Test Result
-      uses: actions/upload-artifact@v4.0.0
-      if: always()
+      uses: actions/upload-artifact@v3.1.3
+      if: always ()
       with:
-        name: Cucumber Report
-        path: reports
-     
-    # Deploy to Github Pages
+        name: API Test Report 
+        path: reports/cucumber-api-report.html
+
+    #Deploy to Github Pages
     - name: Deploy report to Github Pages
-      if: always()
+      if: always ()
       uses: peaceiris/actions-gh-pages@v3.9.3
-      with: 
-        personal_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: reports
+      with:
+         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         PUBLISH_DIR: reports
