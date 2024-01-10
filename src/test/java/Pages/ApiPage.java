@@ -67,23 +67,23 @@ public class ApiPage {
 
     public void hitApiGetListUsers() {
         res = getListUsers(setURL);
-        System.out.println(res.getBody().asString());
+////        System.out.println(res.getBody().asString());
     }
 
     public void hitApiGetListPost() {
         res = getListPosts(setURL);
-        System.out.println(res.getBody().asString());
+//        System.out.println(res.getBody().asString());
     }
 
     public void hitApiGetListUsersWithInvalidToken() {
         res = getListUsersWithInvalidToken(setURL);
-        System.out.println(res.getBody().asString());
+//        System.out.println(res.getBody().asString());
 
     }
 
     public void hitApiGetListUsersWithNoAuth() {
         res = getListUsersWithNoAuth(setURL);
-        System.out.println(res.getBody().asString());
+//        System.out.println(res.getBody().asString());
 
     }
 
@@ -99,7 +99,7 @@ public class ApiPage {
         JsonPath jsonPathEvaluator = res.jsonPath();
         global_id = jsonPathEvaluator.get("id");
 //        System.out.println("New user ID: " + global_id);
-//        System.out.println(res.getBody().asString());
+////        System.out.println(res.getBody().asString());
 
     }
 
@@ -108,7 +108,7 @@ public class ApiPage {
         JsonPath jsonPathEvaluator = res.jsonPath();
         global_id = jsonPathEvaluator.get("id");
 //        System.out.println("New user ID: " + global_id);
-//        System.out.println(res.getBody().asString());
+////        System.out.println(res.getBody().asString());
 
     }
 
@@ -116,7 +116,7 @@ public class ApiPage {
     public void hitApiDeleteUser() {
         if (global_id != null) {
             res = deleteUser(setURL, global_id);
-            System.out.println(res.getBody().asString());
+    //        System.out.println(res.getBody().asString());
         } else {
             System.out.println("Error: Global ID is null. Please ensure it is set before attempting to delete.");
         }
@@ -125,13 +125,13 @@ public class ApiPage {
 
     public void hitApiUpdateUser() {
         res = updateUser(setURL, global_id);
-        System.out.println(res.getBody().asString());
+//        System.out.println(res.getBody().asString());
 
     }
 
     public void hitApiUpdateNonExistentUser() {
         res = updateNonExistentUser(setURL);
-        System.out.println(res.getBody().asString());
+//        System.out.println(res.getBody().asString());
 
     }
 
@@ -139,7 +139,7 @@ public class ApiPage {
 
     public void hitApiDeleteNonExistentUser() {
         res = deleteUserNonExistent(setURL);
-        System.out.println(res.getBody().asString());
+//        System.out.println(res.getBody().asString());
 
 
     }
@@ -294,7 +294,7 @@ public class ApiPage {
     public void hitApiPostDeletePost(){
         if (global_id != null) {
             res = deletePost(setURL, global_id);
-            System.out.println(res.getBody().asString());
+    //        System.out.println(res.getBody().asString());
         } else {
             System.out.println("Error: Global ID is null. Please ensure it is set before attempting to delete.");
         }
@@ -303,7 +303,7 @@ public class ApiPage {
     public void hitApiPostDeletePostWithInvalidPostId(){
         if (global_id != null) {
             res = deletePost(setURL, global_id+"cc");
-            System.out.println(res.getBody().asString());
+    //        System.out.println(res.getBody().asString());
         } else {
             System.out.println("Error: Global ID is null. Please ensure it is set before attempting to delete.");
         }

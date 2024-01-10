@@ -116,13 +116,13 @@ public class Models extends ApiPage {
 
         // Menggunakan nilai "id" dari operasi POST untuk operasi DELETE
         String finalEndpoint = endpoint + "/" + global_id;
-        System.out.println(finalEndpoint);
+        // // System.out.println(finalEndpoint);
 
         // Melakukan permintaan DELETE dan mengembalikan respons
         return request.when().delete(finalEndpoint);
 //
 //        String finalEndpoint = endpoint + "/" + user_id;
-//        System.out.println(finalEndpoint);
+//        // System.out.println(finalEndpoint);
 //        return request.when().delete(finalEndpoint);
     }
 
@@ -132,13 +132,13 @@ public class Models extends ApiPage {
 
         // Menggunakan nilai "id" dari operasi POST untuk operasi DELETE
         String finalEndpoint = endpoint + "/";
-        System.out.println(finalEndpoint);
+        // System.out.println(finalEndpoint);
 
         // Melakukan permintaan DELETE dan mengembalikan respons
         return request.when().delete(finalEndpoint);
 //
 //        String finalEndpoint = endpoint + "/" + user_id;
-//        System.out.println(finalEndpoint);
+//        // System.out.println(finalEndpoint);
 //        return request.when().delete(finalEndpoint);
     }
 
@@ -150,7 +150,7 @@ public class Models extends ApiPage {
         payload.put("firstName", firstName);
 
         String finalEndpoint = endpoint + "/" + global_id;
-        System.out.println(finalEndpoint);
+        // System.out.println(finalEndpoint);
         return request.body(payload.toString()).when().put(finalEndpoint);
     }
 
@@ -162,7 +162,7 @@ public class Models extends ApiPage {
         payload.put("firstName", firstName);
 
         String finalEndpoint = endpoint + "/" + "usernotvalid";
-        System.out.println(finalEndpoint);
+        // System.out.println(finalEndpoint);
         return request.body(payload.toString()).when().put(finalEndpoint);
     }
 
@@ -184,7 +184,7 @@ public class Models extends ApiPage {
     public static Response deletePost(String endpoint, String global_id) {
         setupHeaders();
         String finalEndpoint = endpoint + "/" + global_id;
-        System.out.println(finalEndpoint);
+        // System.out.println(finalEndpoint);
 
         // Melakukan permintaan DELETE dan mengembalikan respons
         return request.when().delete(finalEndpoint);

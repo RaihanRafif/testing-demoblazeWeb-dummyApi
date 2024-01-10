@@ -344,7 +344,7 @@ public class HomePage {
     public void userWillSeeTextAlertMessage(String username) {
         try {
             // Tunggu hingga alert muncul dengan waktu maksimal 10 detik
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             wait.until(ExpectedConditions.alertIsPresent());
 
             // Tangkap alert

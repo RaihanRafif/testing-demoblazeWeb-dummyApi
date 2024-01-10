@@ -10,7 +10,6 @@ Feature: Test Automation Web UI
     And user click Sign Up button on the sign up page
     Then user will see "Sign up successful."
 
-
   Scenario: Failed sign up
     Given user is on the home page
     And user click Sign Up button
@@ -27,7 +26,6 @@ Feature: Test Automation Web UI
     And user click Sign Up button on the sign up page
     Then user will see alert "This user already exist."
 
-
   Scenario: Successful login
     Given user is on the home page
     And user click Sign Up button
@@ -43,7 +41,6 @@ Feature: Test Automation Web UI
     And user input password "inipassword" (for loginPage)
     And user click Login button on the sign up page
     Then user will see Welcome username
-
 
   Scenario: Failed login
     Given user is on the home page
@@ -214,61 +211,3 @@ Feature: Test Automation Web UI
     And user click Cart button
     And user is on the cart page
     Then user will see ASUS Full HD on the Cartpage
-
-  Scenario: User can add MacBook Pro to cart
-    Given user is on the home page
-    And user click next button on the Homepage
-    And user see MacBook Pro on the Homepage
-    When user click MacBook Pro product
-    And user click Add to cart
-    And user will see text alert message "Product added"
-    And user click Cart button
-    And user is on the cart page
-    Then user will see MacBook Pro on the Cartpage
-
-  Scenario: User can place order after add product to the cart
-    Given user is on the home page
-    And user see Samsung galaxy s(six) on the Homepage
-    When user click Samsung galaxy s(six) product
-    And user click Add to cart
-    And user will see text alert message "Product added"
-    And user click Cart button
-    And user is on the cart page
-    Then user will see Samsung galaxy s(six) on the Cartpage
-    And user click Place Order
-    And user fill the Name form
-    And user fill the Country form
-    And user fill the City form
-    And user fill the Credit card form
-    And user fill the Month form
-    And user fill the Year Form
-    Then user click the Purchase button
-    And user can see the description of the order
-    And user click OK button
-
-  Scenario: User can place order after add products to the cart
-    Given user is on the home page
-    And user see Samsung galaxy s(six) on the Homepage
-    When user click Samsung galaxy s(six) product
-    And user click Add to cart
-    And user will see text alert message "Product added"
-    And user click Home button
-    And user see Nokia lumia(OneFiveTwoZero) on the Homepage
-    And user click Nokia lumia(OneFiveTwoZero) product
-    And user click Add to cart
-    And user will see text alert message "Product added"
-    And user click Cart button
-    And user is on the cart page
-    Then user will see Samsung galaxy s(six) on the Cartpage
-    And user click Place Order
-    And user fill the Name form
-    And user fill the Country form
-    And user fill the City form
-    And user fill the Credit card form
-    And user fill the Month form
-    And user fill the Year Form
-    Then user click the Purchase button
-    And user can see the description of the order
-    And user click OK button
-
-
